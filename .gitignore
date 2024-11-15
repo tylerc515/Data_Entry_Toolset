@@ -21,3 +21,7 @@ Thumbs.db
 
 # PyInstaller artifacts
 *.exe
+
+# Ignore specific files but allow icons
+*.ico
+!assets/JTC_logo.ico
