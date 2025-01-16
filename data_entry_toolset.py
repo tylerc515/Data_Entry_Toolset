@@ -4,6 +4,9 @@ from tkinter import Tk, filedialog, messagebox, Button, Label, Checkbutton, IntV
 import pandas as pd
 import csv
 
+# Version number
+__version__ = "1.0.2"
+
 def convert_all_csv_to_xlsx(parent_folder):
     """Converts all .csv files in the folder to .xlsx before processing."""
     print(f"Scanning for .csv files in folder: {parent_folder}")
@@ -89,7 +92,7 @@ def run_script():
         return
 
     # Construct a detailed warning message
-    message = "Have you backed up your files?\n\nThis script will perform the following operations:\n\n"
+    message = f"Have you backed up your files?\n\nJTC Data Entry Toolkit v{__version__}\n\nThis script will perform the following operations:\n\n"
 
     if remove_vs_var.get():
         message += "- Remove 'V' from any number followed by 'V'.\n"
@@ -131,7 +134,7 @@ def run_script():
 
 def create_gui():
     root = Tk()
-    root.title("JTC Data Entry Toolkit")
+    root.title(f"JTC Data Entry Toolkit v{__version__}")
 
     # Center the window dynamically
     window_width = 500
@@ -142,7 +145,7 @@ def create_gui():
     y_position = (screen_height // 2) - (window_height // 2)
     root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
 
-    Label(root, text="JTC Data Entry Toolkit", font=("Arial", 16, "bold")).pack(pady=10)
+    Label(root, text=f"JTC Data Entry Toolkit v{__version__}", font=("Arial", 16, "bold")).pack(pady=10)
     Label(root, text="This tool processes Excel and CSV files to remove 'V' from data and hide empty rows.", wraplength=400, justify="center").pack()
 
     Label(root, text="Warning: Please back up your files before proceeding!", font=("Arial", 10, "bold"), fg="red", wraplength=400, justify="center").pack(pady=5)
